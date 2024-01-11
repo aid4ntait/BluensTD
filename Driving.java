@@ -8,8 +8,8 @@ public class Driving
         frame.setSize(400, 400);
         frame.setLocation(0, 0);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Panel01 p = new Panel01();
-        frame.setContentPane(p);
+        Panel pane = new Panel();
+        frame.setContentPane(pane);
         frame.setVisible(true);
 
     }
