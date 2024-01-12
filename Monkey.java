@@ -1,26 +1,27 @@
+//Our parent class to be copied for all lil cute monkey additions 
 public class Monkey
 {
     // Monkey stats
     //public static int numOfMonkeys;
-    private int attackRange;
     private double attackSpeed;
+    private int attackRange;
     private int attackDamage;
     private int cost;
-    private int x;
-    private int y;
+    private int xPosition;
+    private int yPosition;
 
-    public Monkey(double speed, int damage, int range, int cst, int xLocation, int yLocation)
+    public Monkey(double speed, int damage, int range, int price, int xLocation, int yLocation)
     {
         //numOfMonkeys++;
-        attackSpeed = speed;
-        attackRange = range;
-        attackDamage = damage;
-        cost = cst;
+        this.attackSpeed = speed;
+        this.attackRange = range;
+        this.attackDamage = damage;
+        this.cost = price;
 
         // added x and y locations so that we can later check in refrence to a balloon to see its distance 
 
-        x = xLocation;
-        y = yLocation;
+        xPosition = xLocation;
+        yPosition = yLocation;
     }
 
     public void inRange()

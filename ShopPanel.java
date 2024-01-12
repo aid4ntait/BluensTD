@@ -3,14 +3,14 @@ import java.awt.*;
 import java.awt.event.*;
 
 
-public class Shop extends JPanel
+public class ShopPanel extends JPanel
 {
     private GridLayout griddy;
     private JButton button; 
 
     // for whatever reason vs is running this as a method and not a constructor which is pretty swag
     
-     public void Shop()
+     public ShopPanel()
     {
         this.setSize(180, 720);
         this.setBackground(Color.BLACK);
