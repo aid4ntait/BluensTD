@@ -6,11 +6,11 @@ import java.awt.event.*;
 public class Shop extends JPanel
 {
     private GridLayout griddy;
-    private JButton 
+    private JButton button; 
 
     // for whatever reason vs is running this as a method and not a constructor which is pretty swag
     
-     public Shop()
+     public void Shop()
     {
         this.setSize(180, 720);
         this.setBackground(Color.BLACK);
