@@ -30,7 +30,7 @@ public class Monkey
         /*while(dist < attackRange)
         {
             attack();
-            wait();
+            wait(); ඞ
         } */
     }
     public void attack()

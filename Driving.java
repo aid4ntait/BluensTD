@@ -12,6 +12,5 @@ public class Driving
         GameBoardPanel pain = new GameBoardPanel();
         frame.setContentPane(pain);
         frame.setVisible(true);
-
     }
 }
