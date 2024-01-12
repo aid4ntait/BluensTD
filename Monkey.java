@@ -3,6 +3,7 @@ public class Monkey
 {
     // Monkey stats
     //public static int numOfMonkeys;
+    private double bluenDistance;
     private double attackSpeed;
     private int attackRange;
     private int attackDamage;

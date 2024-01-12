@@ -8,8 +8,8 @@ public class ShopPanel extends JPanel
     private GridLayout griddy;
     private JButton cannonButton, dartMonkeyButton, sniperMonkeyButton, dartlingGunnerMonkeyButton, ninjaMonkeyButton, racoonMonkey; 
     private JLabel cost;
-    
-     public ShopPanel() 
+    private Player player;
+    public ShopPanel() 
     {
         this.setSize(180, 720);
         this.setBackground(Color.BLACK);
@@ -21,13 +21,15 @@ public class ShopPanel extends JPanel
 
         this.addMouseListener(new Mouse());
 
+        
+        dartMonkeyButton = new JButton("Purchase Dart Monkey");
+        dartMonkeyButton.addActionListener(new dartMonkeyButtonListener());
+        this.add(dartMonkeyButton);
+        /*
         cannonButton = new JButton("Purchase Bomb Shooter");
         cannonButton.addActionListener(new cannonButtonListener());
         this.add(cannonButton);
 
-        dartMonkeyButton = new JButton("Purchase Dart Monkey");
-        dartMonkeyButton.addActionListener(new dartMonkeyButtonListener());
-        this.add(dartMonkeyButton);
 
         sniperMonkeyButton = new JButton("Purchase Sniper Monkey");
         sniperMonkeyButton.addActionListener(new sniperMonkeyButtonListener());
@@ -40,15 +42,19 @@ public class ShopPanel extends JPanel
         dartlingGunnerMonkeyButton = new JButton("Purchase Dartling Gunner");
         dartlingGunnerMonkeyButton.addActionListener(new dartlingGunnerMonkeyButtonListener());
         this.add(dartlingGunnerMonkeyButton);
+        */
 
 
         
     }
-
-    private void addButton(JPanel panel, String text, double value)
+    private class dartMonkeyButtonListener implements ActionListener
     {
-        
+        public void actionPerformed(ActionEvent e)
+        {
+            if(Player.)
+        }
     }
+    /* 
     private class Mouse extends MouseAdapter
     {
         public void mouseMoved(MouseEvent e)
@@ -59,4 +65,5 @@ public class ShopPanel extends JPanel
             }
         }
     }
+    */
 }

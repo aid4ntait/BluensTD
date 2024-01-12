@@ -5,8 +5,8 @@ import java.awt.image.*;
 
 public class Panel extends JPanel
 {
-    private boolean monkeyBought;
-    private ShopPanel market;
+    public boolean monkeyBought;
+  // No more shop panel  private ShopPanel market;
     private JButton button1; 
     private JLabel cost;
     private JPanel gamingPanel;
@@ -20,16 +20,16 @@ public class Panel extends JPanel
         gamingPanel.setSize(1280,720);
         
         
-        market = new ShopPanel();
+   //     market = new ShopPanel();
         
         Monkey moneky = new Monkey(1,20000,10,100,400,400); //moneky :)
-        this.add(market);
+      //  this.add(market);
         addMouseListener(new Mouse());
     }
     
     private void addMonkey(JPanel panel, int xLocation, int yLocation)
     {
-        
+        Monkey monkey = new Monkey(1,20000,10,100,400,400);
     }
     private class Mouse extends MouseAdapter
     {
