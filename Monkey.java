@@ -5,23 +5,32 @@ public class Monkey
     private int attackRange;
     private double attackSpeed;
     private int attackDamage;
-    private int cost  = 100;
+    private int cost;
+    private int x;
+    private int y;
 
-    public void Monkey()
+    public Monkey(double speed, int damage, int range, int cst, int xLocation, int yLocation)
     {
         //numOfMonkeys++;
-        attackDamage = 30;
-        attackSpeed = 1.00;
-        
+        attackSpeed = speed;
+        attackRange = range;
+        attackDamage = damage;
+        cost = cst;
+
+        // added x and y locations so that we can later check in refrence to a balloon to see its distance 
+
+        x = xLocation;
+        y = yLocation;
     }
+
     public void inRange()
     {
         //late calculate distance
-        while(dist < attackRange)
+        /*while(dist < attackRange)
         {
             attack();
             wait();
-        }
+        } */
     }
     public void attack()
     {
