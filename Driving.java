@@ -9,7 +9,7 @@ public class Driving
         frame.setSize(1280, 720);
         frame.setLocation(0, 0);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Panel pain = new Panel();
+        GamePanel pain = new GamePanel();
         frame.setContentPane(pain);
         frame.setVisible(true);
     }
