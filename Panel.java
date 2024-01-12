@@ -8,7 +8,7 @@ public class Panel extends JPanel
     public boolean monkeyBought;
   // No more shop panel  private ShopPanel market;
     private JButton button1; 
-    private JLabel cost; //?
+    private JLabel cost; //?Price per monke obvi 
     private JPanel gamingPanel;
     private ShopPanel market;
 
@@ -16,22 +16,21 @@ public class Panel extends JPanel
     {
         this.setBackground(Color.GREEN);
         this.setSize(1280,720);
+
         gamingPanel = new JPanel(); //we gaming boys // we are so cracked
         gamingPanel.setBackground(Color.GREEN);
         gamingPanel.setSize(1280,720);
+
         market = new ShopPanel();
         this.add(market);
         
-   //     market = new ShopPanel();
-        
-        Monkey moneky = new Monkey(1,20000,10,100,400,400); //moneky :)
-      //  this.add(market);
+         //moneky :)
         addMouseListener(new Mouse());
     }
     
     private void addMonkey(JPanel panel, int xLocation, int yLocation)
     {
-        Monkey monkey = new Monkey(1,20000,10,100,400,400);
+        Monkey moneky = new Monkey(1,20000,50,100,xLocation,yLocation);
     }
     private class Mouse extends MouseAdapter
     {

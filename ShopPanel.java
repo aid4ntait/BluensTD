@@ -8,9 +8,10 @@ public class ShopPanel extends JPanel
     private GridLayout griddy;
     private JButton cannonButton, dartMonkeyButton, sniperMonkeyButton, dartlingGunnerMonkeyButton, ninjaMonkeyButton, racoonMonkey; 
     private JLabel cost;
-    private Player player;
+    
     public ShopPanel() 
     {
+        Player player = new Player();
         this.setSize(180, 720);
         this.setBackground(Color.BLACK);
 
@@ -51,7 +52,11 @@ public class ShopPanel extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-            if(Player.)
+            if(player.getMoney() >= 100)
+            {
+                player.setMoney(player.getMoney() - 100);
+                Panel.monkeyBought = true;
+            }
         }
     }
     /* 

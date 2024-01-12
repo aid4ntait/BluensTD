@@ -58,9 +58,22 @@ public class Monkey
         return 0;
     }
 
-    public int getYPosition(int yLocation)
+    public int getYPosition()
     {
-        
+        return yPosition;
+    }
+
+    // setter and getter xPosition
+
+    public int getXPosition()
+    {
+        return xPosition;
+    }
+
+    public int setXPosition(int xLocation)
+    {
+        xPosition = xLocation;
+        return 0;
     }
    
 
