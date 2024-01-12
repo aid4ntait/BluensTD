@@ -42,7 +42,7 @@ public class GamePanel extends JPanel
             }
         }
     }
-    public void monkeyBought()
+    public static void monkeyBought()
     {
         monkeyBought = true;
     }

@@ -52,10 +52,11 @@ public class ShopPanel extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
+            Player player = new Player();
             if(player.getMoney() >= 100)
             {
                 player.setMoney(player.getMoney() - 100);
-                Panel.monkeyBought();
+                GamePanel.monkeyBought();
             }
         }
     }
