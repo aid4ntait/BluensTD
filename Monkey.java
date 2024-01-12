@@ -38,6 +38,30 @@ public class Monkey
     {
         // find the closest bluen and hit them for attackDamage
     }
+
+    // cost setter and getter
+    public int setCost(int newCost)
+    {
+        cost = newCost;
+        return 0;
+    }
+
+    public int getCost()
+    {
+        return cost;
+    }
+
+    // setter and getter yPosition
+    public int setYPosition(int yLocation)
+    {
+        yPosition = yLocation;
+        return 0;
+    }
+
+    public int getYPosition(int yLocation)
+    {
+        
+    }
    
 
 }

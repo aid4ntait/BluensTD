@@ -8,8 +8,9 @@ public class Panel extends JPanel
     public boolean monkeyBought;
   // No more shop panel  private ShopPanel market;
     private JButton button1; 
-    private JLabel cost;
+    private JLabel cost; //?
     private JPanel gamingPanel;
+    private ShopPanel market;
 
     public Panel()
     {
@@ -18,7 +19,8 @@ public class Panel extends JPanel
         gamingPanel = new JPanel(); //we gaming boys // we are so cracked
         gamingPanel.setBackground(Color.GREEN);
         gamingPanel.setSize(1280,720);
-        
+        market = new ShopPanel();
+        this.add(market);
         
    //     market = new ShopPanel();
         

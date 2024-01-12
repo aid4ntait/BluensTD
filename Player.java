@@ -26,5 +26,9 @@ public class Player
         return 0;
     }
 
-    p
+    public static int setMoney(int newMoney)
+    {
+        currentMoney = newMoney;
+        return 0;
+    }
 }
