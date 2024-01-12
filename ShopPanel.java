@@ -55,7 +55,7 @@ public class ShopPanel extends JPanel
             if(player.getMoney() >= 100)
             {
                 player.setMoney(player.getMoney() - 100);
-                Panel.monkeyBought = true;
+                Panel.monkeyBought();
             }
         }
     }

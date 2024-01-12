@@ -3,16 +3,15 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 
-public class Panel extends JPanel
+public class GamePanel extends JPanel
 {
-    public boolean monkeyBought;
+    private boolean monkeyBought;
   // No more shop panel  private ShopPanel market;
     private JButton button1; 
-    private JLabel cost; //?Price per monke obvi 
     private JPanel gamingPanel;
     private ShopPanel market;
 
-    public Panel()
+    public GamePanel()
     {
         this.setBackground(Color.GREEN);
         this.setSize(1280,720);
@@ -42,6 +41,10 @@ public class Panel extends JPanel
                 monkeyBought = !monkeyBought;
             }
         }
+    }
+    public void monkeyBought()
+    {
+        monkeyBought = true;
     }
 
     

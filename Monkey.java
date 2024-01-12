@@ -10,7 +10,8 @@ public class Monkey
     private int cost;
     private int xPosition;
     private int yPosition;
-
+    // instead of cost, add hashmap to shop that has monkeys and monkey prices
+    // if not then we need to make the monkey first and return price.
     public Monkey(double speed, int damage, int range, int price, int xLocation, int yLocation)
     {
         //numOfMonkeys++;
