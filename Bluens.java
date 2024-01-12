@@ -13,11 +13,12 @@ public class Bluens
     public Bluens()
     {
         //Bloss is short
+        //what goes here tho
     }
     
     public int getXLocation()
     {
-        return xPosition;
+        return xPosition; //refer to old graphic labs for these I think
     }
     public int getYLocation()
     {

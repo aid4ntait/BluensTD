@@ -5,7 +5,7 @@ import java.awt.image.*;
 
 public class GamePanel extends JPanel
 {
-    private boolean monkeyBought;
+    private boolean monkeyBoughtCondition;
   // No more shop panel  private ShopPanel market;
     private JButton button1; 
     private JPanel gamingPanel;
@@ -23,13 +23,13 @@ public class GamePanel extends JPanel
         market = new ShopPanel();
         this.add(market);
         
-         //moneky :)
         addMouseListener(new Mouse());
     }
     
     private void addMonkey(JPanel panel, int xLocation, int yLocation)
     {
-        Monkey moneky = new Monkey(1,20000,50,100,xLocation,yLocation);
+        Monkey moneky = new Monkey(1,20000,50,100,xLocation,yLocation); //moneky :)
+                                    //yall I can't see these values can we make primitives for them?
     }
     private class Mouse extends MouseAdapter
     {
@@ -38,13 +38,13 @@ public class GamePanel extends JPanel
             if(monkeyBought)
             {
                 addMonkey(gamingPanel, e.getX(), e.getY());
-                monkeyBought = !monkeyBought;
+                monkeyBought = !monkeyBought; //variable or method?  I renamed the bool btw
             }
         }
     }
     public static void monkeyBought()
     {
-        monkeyBought = true;
+        monkeyBoughtCondition = true;
     }
 
     

@@ -52,7 +52,7 @@ public class ShopPanel extends JPanel
     {
         public void actionPerformed(ActionEvent e)
         {
-            Player player = new Player();
+            Player player = new Player(); //should this only be declared in here?
             if(player.getMoney() >= 100)
             {
                 player.setMoney(player.getMoney() - 100);
