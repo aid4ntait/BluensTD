@@ -6,9 +6,7 @@ import java.awt.event.*;
 public class ShopPanel extends JPanel
 {
     private GridLayout griddy;
-    private JButton button; 
-
-    // for whatever reason vs is running this as a method and not a constructor which is pretty swag
+    private JButton purchaseButton; 
     
      public ShopPanel()
     {

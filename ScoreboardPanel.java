@@ -1,3 +1,4 @@
-public class ScoreboardPanel {
+public class ScoreboardPanel 
+{
     
 }

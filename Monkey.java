@@ -26,7 +26,7 @@ public class Monkey
 
     public void inRange()
     {
-        //late calculate distance
+        //later calculate distance
         /*while(dist < attackRange)
         {
             attack();
@@ -35,7 +35,7 @@ public class Monkey
     }
     public void attack()
     {
-        // find the closest bloon and hit them for attackDamage
+        // find the closest bluen and hit them for attackDamage
     }
    
 
