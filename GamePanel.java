@@ -27,14 +27,15 @@ public class GamePanel extends JPanel
         bluens = new Bluens(player);
         market = new ShopPanel(player);
 
-        this.setBackground(Color.GREEN);
+        this.setBackground(Color.GREEN.darker());
         this.setSize(1280,720);
 
         monkeyZone = new JPanel(); 
         monkeyZone.setSize(1280,720);
-        monkeyZone.setVisible(false);
+        monkeyZone.setBackground(Color.BLACK);
 
-        this.add(market);
+        this.add(market); 
+        this.add(monkeyZone);
     }
     
     // the shop is the only class that will call this method. This acts as a way for the shop to tell the player that it must subtract money. 

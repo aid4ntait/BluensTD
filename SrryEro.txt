@@ -18,3 +18,8 @@
 ⠀⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 hey, Ero my bro dawg I apologize extensively for the horrors written within these files 
+^Andrew Wagner is responsible for, but not limited to:
+-Weird meme variable, class, and method names
+-Unhinged comments
+-Any instance of messy code or inadequete commenting
+Aidæns are innocent of any such wrongdoing (excluding slight amongusing)
