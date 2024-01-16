@@ -1,5 +1,5 @@
 import java.util.HashMap;
-
+import java.util.ArrayList;
 public class Monkey
 {
     // Monkey stats
@@ -24,47 +24,54 @@ public class Monkey
 
         // stores all the monkeys in a hashmap so later they may be refrenced 
         monkeysAndCosts = new HashMap<String, Integer>();
-        monkeysAndCosts.put("Ninja Monkey", 150 );
-        monkeysAndCosts.put("Gattling Gun Monkey", 700);
+        monkeysAndCosts.put("Ninja Monkey", 150 ); // can kill camo, 
+        monkeysAndCosts.put("Gattling Gun Monkey", 700); // no bloom
         monkeysAndCosts.put("Dart Monkey", 100);
-        monkeysAndCosts.put("Sniper Monkey", 250);
-        monkeysAndCosts.put("Cannon", 300);
+        monkeysAndCosts.put("Sniper Monkey", 250); // long range, slow fire, high damage
+        monkeysAndCosts.put("Cannon", 300); // hits hard, and slow
     }
 
-    public void inRange()
+
+    public void inRange(ArrayList<Bluens> currentWave)
     {
-        //later calculate distance
-        /*while(dist < attackRange)
+        // Looks at each individual bluen in the wave and finds if its in range.
+        for(int i = 0; i < currentWave.size(); i++) // Iterates through each bluen
         {
-            attack();
-            wait(); ඞ
-        } */
+            int xdis = this.getX() - currentWave.get(i).getX(); // get xdistance
+            int ydis = this.getY() - currentWave.get(i).getY(); // get ydistance
+            double distance = Math.sqrt(Math.pow(xdis, 2) + Math.pow(ydis, 2)); // Using pythagorean get distance 
+            if(distance <= this.attackRange) // if the distance from the current bluen to the monkey is less than range
+            {
+                // attack the bluen
+                
+                break;
+            }
+        }
+        
+        
     }
-    public void attack()
-    {
-        // find the closest bluen and hit them for attackDamage
-    }
+    
 
     // setter and getter yPosition
-    public int setYPosition(int yLocation)
+    public int setY(int yLocation)
     {
         yPosition = yLocation;
         return 0;
     }
 
-    public int getYPosition()
+    public int getY()
     {
         return yPosition;
     }
 
     // setter and getter xPosition
 
-    public int getXPosition()
+    public int getX()
     {
         return xPosition;
     }
 
-    public int setXPosition(int xLocation)
+    public int setX(int xLocation)
     {
         xPosition = xLocation;
         return 0;

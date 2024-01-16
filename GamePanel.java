@@ -2,12 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
+import java.util.ArrayList;
 
 public class GamePanel extends JPanel
 {
     //local objects 
     private ShopPanel market;
     private JButton button1; 
+    private BorderLayout borderLayout = new BorderLayout();
     private JPanel monkeyZone; // invisible panel of same dimensions of the GamePanel 
 
     //Wave handling stuff
@@ -20,6 +22,8 @@ public class GamePanel extends JPanel
     private Player player;
     private ScoreboardPanel scorePanel;
 
+    ArrayList<Bluens> wave = new ArrayList<Bluens>();
+    
 
     public GamePanel()
     { 
@@ -29,25 +33,20 @@ public class GamePanel extends JPanel
 
         this.setBackground(Color.GREEN.darker());
         this.setSize(1280,720);
+        this.setLayout(borderLayout);
 
         monkeyZone = new JPanel(); 
         monkeyZone.setSize(1280,720);
         monkeyZone.setBackground(Color.BLACK);
 
-        this.add(market); 
-        this.add(monkeyZone);
+        this.add(market, borderLayout.EAST);
+        this.add(monkeyZone, borderLayout.CENTER);
     }
     
-    // the shop is the only class that will call this method. This acts as a way for the shop to tell the player that it must subtract money. 
-    public static void monkeyBought() 
+    public static void addMonkey(int speed, int range, int damage, int x, int y)
     {
-        
-    }
-    
-    private void addMonkey(int xLocation, int yLocation)
-    {
-        Monkey moneky = new Monkey(1,20000,100,xLocation,yLocation); //moneky :)
-        //yall I can't see these values can we make primitives for them?
+        Monkey moneky = new Monkey(speed, damage, range, x, y);
+        // needs to add an icon of the monkey at the x y
     }
     
     
@@ -72,5 +71,5 @@ public class GamePanel extends JPanel
     
     //mouse listener
     //gets x,y of mouse when click after buy
-    //new monkey (1ඞ234145,123124,12414124,123,x,y)
+    //new monkey (1234145,123124,12414124,123,x,y)
 }

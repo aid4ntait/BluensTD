@@ -5,50 +5,66 @@ import java.awt.event.*;
 
 public class ShopPanel extends JPanel
 {
-    private GridLayout griddy;
-    private JLabel cost;
-    private int xPosition; // used later for the mouse dragging
-    private int yPosition;
+    private GridLayout griddy; 
     
     public ShopPanel(Player player) 
     {
 
-
         //manifests the shops actual picture 
-        this.setBounds(0, 0, 180, 720);
         this.setBackground(Color.BLACK);
 
-        // sets the layout of the shop to be a grid layout ofඞ one column and five rows 
+        // sets the layout of the shop to be a grid layout of one column and five rows 
         griddy = new GridLayout(5, 1, 0, 50);
         this.setLayout(griddy);
 
-        // adds all the buttons for the monkeys 
-        this.addButton("Ninja Monkey", 150);
-        this.addButton("Dartling Gunner Monkey", 700);
-        this.addButton("Sniper Monkey", 250);
-        this.addButton("Dart Monkey", 100);
-        this.addButton("Cannon", 300);
+        // adds all the buttons for the monkeys // they need their damage range and speed actually made 
+        this.addButton("Ninja Monkey", 150, 1, 1, 1);
+        this.addButton("Dartling Gunner Monkey", 700, 1 , 1, 1);
+        this.addButton("Sniper Monkey", 250, 1, 1, 1);
+        this.addButton("Dart Monkey", 100, 1, 1, 1);
+        this.addButton("Cannon", 300, 1, 1, 1);
         
     }
 
-    private void addButton(String name, Integer cost)
+    // creates a button with the info relative to the monkey it is supposed to be able to add. Then, the button is given a mouse listener. 
+    private void addButton(String name, int cost, int damage, int range, int speed)
     {
-        int price = cost; // so that when the button gets its tool tip text it reads the number instead of the Integer object location
 
         JButton button = new JButton();
-        button.addMouseListener(new Mouse());
-        button.setToolTipText("Drag to Purchase " + name + " for " + price + " Bananas.");
+        button.addMouseListener(new Mouse(name, cost, speed, range, damage));
+        button.setToolTipText("Drag to Purchase " + name + " for " + cost + " Bananas.");
+    }
 
+    // checks wether or not the player has enough money and then uses addMonkey in GamePanel
+    public static void monkeyBought(String name, int cost, int speed, int range, int damage, int x, int y)
+    {
+        if(Player.balance >= cost)
+        {
+            Player.balance -= cost; 
+            GamePanel.addMonkey(speed, range, damage, x, y);
+        }
     }
     
-    // mouse listener
+    // mouse listener that deals with the actions of the button, also stores all of the buttons info so that it can pass it through to monkeyBought;
     private class Mouse extends MouseAdapter
     {
+        private int cost;
+        private int speed;
+        private int range;
+        private int damage;
+        private String name;
+        private int xPosition;
+        private int yPosition;
 
-        public Mouse()
+        public Mouse(String name, int price, int speed, int range, int damage)
         {
             xPosition = 0;
             yPosition = 0;
+            cost = price;
+            this.speed = speed;
+            this.damage = damage;
+            this.range = range;
+            this.name = name;
         }
 
         public void mouseDragged(MouseEvent e)
@@ -61,25 +77,7 @@ public class ShopPanel extends JPanel
         {
             xPosition = f.getX();
             yPosition = f.getY();
-            GamePanel.monkeyBought();
-        }
-
-    }
-
-    // makes sure that when the buttons are pressed they actually do something 
-    /* private class buttonListener(Integer cost) implements addActionListener
-    {
-        private int price;
-
-        public buttonListener()
-        {
-            price = cost;
-        }
-
-        public void actionPerformed(ActionEvent e)
-        {
-            GamePanel.monkeyBought();
+            monkeyBought(name, cost, speed, range, damage, xPosition, yPosition);
         }
     }
-    */
 }
