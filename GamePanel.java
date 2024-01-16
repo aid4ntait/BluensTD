@@ -38,6 +38,8 @@ public class GamePanel extends JPanel
         monkeyZone = new JPanel(); 
         monkeyZone.setSize(1280,720);
         monkeyZone.setBackground(Color.BLACK);
+        monkeyZone.setVisible(true);
+        monkeyZone.setBackground(Color.GREEN.darker());
 
         this.add(market, borderLayout.EAST);
         this.add(monkeyZone, borderLayout.CENTER);

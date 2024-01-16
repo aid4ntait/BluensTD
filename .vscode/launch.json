@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Driver",
+            "request": "launch",
+            "mainClass": "Driver",
+            "projectName": "BluensTD_bb167b67"
+        },
+        {
+            "type": "java",
             "name": "Launch Java Program",
             "request": "launch",
             "mainClass": ""
