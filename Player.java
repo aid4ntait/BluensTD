@@ -1,18 +1,19 @@
 public class Player 
 {
-    private static int currentMoney;
-    private static int healthPoints;
+    // local variables 
+    public static int balance;
+    public static int healthPoints;
 
+    
     public Player()
     {
-        currentMoney = 300;
+        balance = 300;
         healthPoints = 10;
     }
 
-
-    public static int getMoney()
+    public static int getBalance()
     {
-        return currentMoney;
+        return balance;
     }
 
     public static int getHP()
@@ -26,9 +27,9 @@ public class Player
         return 0;
     }
 
-    public static int setMoney(int newMoney)
+    public static int setBalance(int newMoney)
     {
-        currentMoney = newMoney;
+        balance = newMoney;
         return 0;
     }
 }

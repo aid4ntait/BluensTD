@@ -6,11 +6,12 @@ public class Bluens
     private int yPosition;
     private int xDestination;
     private int yDestination;
+    private int killValue; // money on death
     private double armor;
     private boolean stealth;
     
     
-    public Bluens()
+    public Bluens(Player player)
     {
         //Bloss is short
         //what goes here tho

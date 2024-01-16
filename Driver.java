@@ -1,7 +1,7 @@
 import java.awt.Color;
 import javax.swing.JFrame;
  
-public class Driving
+public class Driver
 {
     public static void main(String[]args)
     {

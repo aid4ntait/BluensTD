@@ -5,46 +5,67 @@ import java.awt.image.*;
 
 public class GamePanel extends JPanel
 {
-    private boolean monkeyBoughtCondition;
-  // No more shop panel  private ShopPanel market;
-    private JButton button1; 
-    private JPanel gamingPanel;
+    //local objects 
     private ShopPanel market;
+    private JButton button1; 
+    private JPanel monkeyZone; // invisible panel of same dimensions of the GamePanel 
+
+    //Wave handling stuff
+    private int currentWave = 0;
+    private int bluenCount = 10;
+
+
+    //Making all of the other classes exist so we can pass them through to each other
+    private Bluens bluens;
+    private Player player;
+    private ScoreboardPanel scorePanel;
+
 
     public GamePanel()
-    {
+    { 
+        player = new Player(); 
+        bluens = new Bluens(player);
+        market = new ShopPanel(player);
+
         this.setBackground(Color.GREEN);
         this.setSize(1280,720);
 
-        gamingPanel = new JPanel(); //we gaming boys // we are so cracked
-        gamingPanel.setBackground(Color.GREEN);
-        gamingPanel.setSize(1280,720);
+        monkeyZone = new JPanel(); 
+        monkeyZone.setSize(1280,720);
+        monkeyZone.setVisible(false);
 
-        market = new ShopPanel();
         this.add(market);
-        
-        addMouseListener(new Mouse());
     }
     
-    private void addMonkey(JPanel panel, int xLocation, int yLocation)
+    // the shop is the only class that will call this method. This acts as a way for the shop to tell the player that it must subtract money. 
+    public static void monkeyBought() 
     {
-        Monkey moneky = new Monkey(1,20000,50,100,xLocation,yLocation); //moneky :)
-                                    //yall I can't see these values can we make primitives for them?
+        
     }
-    private class Mouse extends MouseAdapter
+    
+    private void addMonkey(int xLocation, int yLocation)
     {
-        public void mousePressed(MouseEvent e)
+        Monkey moneky = new Monkey(1,20000,100,xLocation,yLocation); //moneky :)
+        //yall I can't see these values can we make primitives for them?
+    }
+    
+    
+    private static void waveHandler(int currentWave, int bluenCount)
+    {
+        //Stuff to trigger the next wave
+        int previousWaveCounter = 0;
+        int tempBluenCount = bluenCount; //makes it so we can easily increment, while also judging wave progress by bluens killed
+        if(bluenCount == 0)
         {
-            if(monkeyBought)
-            {
-                addMonkey(gamingPanel, e.getX(), e.getY());
-                monkeyBought = !monkeyBought; //variable or method?  I renamed the bool btw
-            }
+            previousWaveCounter = currentWave;
+            currentWave += 1;
         }
-    }
-    public static void monkeyBought()
-    {
-        monkeyBoughtCondition = true;
+
+        if(currentWave > previousWaveCounter)
+        {
+            Player.balance += 100; //why uppercase Class Player instead of the local player we made? Aiden no know:/
+            bluenCount += tempBluenCount - (5 * currentWave); //random algorithm to increase bluens over waves by increasing amount
+        }
     }
 
     

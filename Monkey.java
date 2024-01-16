@@ -1,4 +1,5 @@
-//Our parent class to be copied for all lil cute monkey additions 
+import java.util.HashMap;
+
 public class Monkey
 {
     // Monkey stats
@@ -7,23 +8,27 @@ public class Monkey
     private double attackSpeed;
     private int attackRange;
     private int attackDamage;
-    private int cost;
     private int xPosition;
     private int yPosition;
-    // instead of cost, add hashmap to shop that has monkeys and monkey prices
-    // if not then we need to make the monkey first and return price.
-    public Monkey(double speed, int damage, int range, int price, int xLocation, int yLocation)
+    private HashMap<String, Integer> monkeysAndCosts; // String is the name and the Integer is the cost of the monkey 
+
+    
+    public Monkey(double speed, int damage, int range, int xLocation, int yLocation)
     {
         //numOfMonkeys++;
         this.attackSpeed = speed;
         this.attackRange = range;
         this.attackDamage = damage;
-        this.cost = price;
-
-        // added x and y locations so that we can later check in refrence to a balloon to see its distance 
-
         xPosition = xLocation;
         yPosition = yLocation;
+
+        // stores all the monkeys in a hashmap so later they may be refrenced 
+        monkeysAndCosts = new HashMap<String, Integer>();
+        monkeysAndCosts.put("Ninja Monkey", 150 );
+        monkeysAndCosts.put("Gattling Gun Monkey", 700);
+        monkeysAndCosts.put("Dart Monkey", 100);
+        monkeysAndCosts.put("Sniper Monkey", 250);
+        monkeysAndCosts.put("Cannon", 300);
     }
 
     public void inRange()
@@ -38,18 +43,6 @@ public class Monkey
     public void attack()
     {
         // find the closest bluen and hit them for attackDamage
-    }
-
-    // cost setter and getter
-    public int setCost(int newCost)
-    {
-        cost = newCost;
-        return 0;
-    }
-
-    public int getCost()
-    {
-        return cost;
     }
 
     // setter and getter yPosition
