@@ -33,6 +33,7 @@ public class ShopPanel extends JPanel
 
         JButton button = new JButton();
         button.addMouseListener(new Mouse(name, cost, speed, range, damage));
+        button.setIcon(new ImageIcon("dartMonekySized.png"));
         button.setToolTipText("Drag to Purchase " + name + " for " + cost + " Bananas.");
         add(button);
     }
