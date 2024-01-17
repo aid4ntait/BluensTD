@@ -10,15 +10,15 @@ public class ShopPanel extends JPanel
     
     public ShopPanel(Player player) 
     {
-        dart = new ImageIcon("DartMonkey.png");
-        ninja = new ImageIcon("NinjaMonkey.png");
-        gattling = new ImageIcon("Gattling.png");
-        sniper = new ImageIcon("Sniper.png");
-        cannon = new ImageIcon("Cannon (2).png");
+        dart = new ImageIcon(getClass().getResource("/pngsBro/DartMonkey.png"));
+        ninja = new ImageIcon(getClass().getResource("/pngsBro/NinjaMonkey.png"));
+        gattling = new ImageIcon(getClass().getResource("/pngsBro/Gattling.png"));
+        sniper = new ImageIcon(getClass().getResource("/pngsBro/Sniper.png"));
+        cannon = new ImageIcon(getClass().getResource("/pngsBro/Cannon (2).png"));
 
         //manifests the shops actual picture 
         this.setBackground(Color.WHITE);
-        this.setPreferredSize(new Dimension(1280, 125));
+        this.setPreferredSize(new Dimension(1280, 150));
 
         // sets the layout of the shop to be a grid layout of one column and five rows 
         griddy = new GridLayout(1, 5, 50, 50);
