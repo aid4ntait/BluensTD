@@ -12,9 +12,10 @@ public class ShopPanel extends JPanel
 
         //manifests the shops actual picture 
         this.setBackground(Color.BLACK);
+        this.setPreferredSize(new Dimension(1280, 175));
 
         // sets the layout of the shop to be a grid layout of one column and five rows 
-        griddy = new GridLayout(5, 1, 0, 50);
+        griddy = new GridLayout(1, 5, 20, 10);
         this.setLayout(griddy);
 
         // adds all the buttons for the monkeys // they need their damage range and speed actually made 
@@ -33,6 +34,7 @@ public class ShopPanel extends JPanel
         JButton button = new JButton();
         button.addMouseListener(new Mouse(name, cost, speed, range, damage));
         button.setToolTipText("Drag to Purchase " + name + " for " + cost + " Bananas.");
+        add(button);
     }
 
     // checks wether or not the player has enough money and then uses addMonkey in GamePanel

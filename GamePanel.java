@@ -31,20 +31,17 @@ public class GamePanel extends JPanel
         bluens = new Bluens(player);
         market = new ShopPanel(player);
 
-        this.setBackground(Color.GREEN.darker());
-        this.setSize(1280,720);
         this.setLayout(borderLayout);
 
         monkeyZone = new JPanel(); 
-        monkeyZone.setSize(1280,720);
-        monkeyZone.setBackground(Color.BLACK);
         monkeyZone.setVisible(true);
         monkeyZone.setBackground(Color.GREEN.darker());
 
+        
         market.setVisible(true);
         market.setBackground(Color.BLACK);
-        this.add(market, borderLayout.EAST);
-        this.add(monkeyZone, borderLayout.CENTER);
+        this.add(market, BorderLayout.SOUTH);
+        this.add(monkeyZone, BorderLayout.CENTER);
     }
     
     public static void addMonkey(int speed, int range, int damage, int x, int y)
