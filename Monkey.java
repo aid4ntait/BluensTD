@@ -26,9 +26,10 @@ public class Monkey
         monkeysAndCosts = new HashMap<String, Integer>();
         monkeysAndCosts.put("Ninja Monkey", 150 ); // can kill camo, 
         monkeysAndCosts.put("Gattling Gun Monkey", 700); // no bloom
-        monkeysAndCosts.put("Dart Monkey", 100);
+        monkeysAndCosts.put("Dart Monkey", 100); //The basic moneky
         monkeysAndCosts.put("Sniper Monkey", 250); // long range, slow fire, high damage
         monkeysAndCosts.put("Cannon", 300); // hits hard, and slow
+        monkeysAndCosts.put("Racoon Monkey", 300); //Consume the bluen.
     }
 
 
@@ -43,7 +44,8 @@ public class Monkey
             if(distance <= this.attackRange) // if the distance from the current bluen to the monkey is less than range
             {
                 // attack the bluen
-                
+                //Create dart: image dart = new ImageIcon(getClass().getResource("/pngsBro/DartAttackPlaceholder.png"));
+                //dart png follows bloon until estimated contact, damages, and gets deleted
                 break;
             }
         }

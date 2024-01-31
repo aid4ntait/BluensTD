@@ -6,7 +6,7 @@ import java.awt.event.*;
 public class ShopPanel extends JPanel
 {
     private GridLayout griddy; 
-    private ImageIcon dart, ninja, gattling, sniper, cannon;
+    private ImageIcon dart, ninja, gattling, sniper, cannon, racoon;
     
     public ShopPanel(Player player) 
     {
@@ -15,6 +15,7 @@ public class ShopPanel extends JPanel
         gattling = new ImageIcon(getClass().getResource("/pngsBro/Gattling.png"));
         sniper = new ImageIcon(getClass().getResource("/pngsBro/Sniper.png"));
         cannon = new ImageIcon(getClass().getResource("/pngsBro/Cannon (2).png"));
+        //racoon = new ImageIcon(getClass().getResource("/pngsBro/placeHolder.png"));
 
         //manifests the shops actual picture 
         this.setBackground(Color.WHITE);
@@ -31,6 +32,7 @@ public class ShopPanel extends JPanel
         this.addButton("Sniper Monkey", 250, 1, 1, 1, sniper);
         this.addButton("Dart Monkey", 100, 1, 1, 1, dart);
         this.addButton("Cannon", 300, 1, 1, 1, cannon);
+       // this.addButton("Racoon Monkey", 100, 1, 1, 1, racoon);
         
     }
 

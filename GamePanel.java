@@ -48,6 +48,8 @@ public class GamePanel extends JPanel
     {
         Monkey moneky = new Monkey(speed, damage, range, x, y);
         // needs to add an icon of the monkey at the x y
+        //Like this? Still needs aligned w/ cordinates tho :
+        monekyImage = new ImageIcon(getClass().getResource("/pngsBro/DartMonkey.png"));
     }
     
     

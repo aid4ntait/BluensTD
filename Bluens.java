@@ -25,6 +25,8 @@ public class Bluens
     {
         return yPosition;
     }
+
+    //SEPERATE into seperate goals e.g. : path1 goes right 300 units, path2 goes up 20, path3 left 400, ect
     private void Path()
     {
         //I write clean code that will get us to destination.  Do not question.  It will work (prettyplz)
