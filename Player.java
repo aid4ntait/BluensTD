@@ -11,25 +11,29 @@ public class Player
         healthPoints = 10;
     }
 
-    public static int getBalance()
+    // getter and setter for balance
+
+    public int getBalance()
     {
         return balance;
     }
 
-    public static int getHP()
+    public int setBalance(int newMoney)
+    {
+        balance = newMoney;
+        return 0;
+    }
+
+    // getter and setter for health points
+
+    public int getHealthPoints()
     {
         return healthPoints;
     }
 
-    public static int setHP(int newHealth)
+    public int setHealthPoints(int newHealth)
     {
         healthPoints = newHealth;
-        return 0;
-    }
-
-    public static int setBalance(int newMoney)
-    {
-        balance = newMoney;
         return 0;
     }
 }

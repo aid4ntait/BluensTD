@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
 import java.util.ArrayList;
 
 public class GamePanel extends JPanel
@@ -47,9 +45,6 @@ public class GamePanel extends JPanel
     public static void addMonkey(int speed, int range, int damage, int x, int y)
     {
         Monkey moneky = new Monkey(speed, damage, range, x, y);
-        // needs to add an icon of the monkey at the x y
-        //Like this? Still needs aligned w/ cordinates tho :
-        monekyImage = new ImageIcon(getClass().getResource("/pngsBro/DartMonkey.png"));
     }
     
     
@@ -70,9 +65,4 @@ public class GamePanel extends JPanel
             bluenCount += tempBluenCount - (5 * currentWave); //random algorithm to increase bluens over waves by increasing amount
         }
     }
-
-    
-    //mouse listener
-    //gets x,y of mouse when click after buy
-    //new monkey (1234145,123124,12414124,123,x,y)
 }

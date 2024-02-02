@@ -6,7 +6,7 @@ import java.awt.event.*;
 public class ShopPanel extends JPanel
 {
     private GridLayout griddy; 
-    private ImageIcon dart, ninja, gattling, sniper, cannon, racoon;
+    private ImageIcon dart, ninja, gattling, sniper, cannon;
     
     public ShopPanel(Player player) 
     {
@@ -15,15 +15,9 @@ public class ShopPanel extends JPanel
         gattling = new ImageIcon(getClass().getResource("/pngsBro/Gattling.png"));
         sniper = new ImageIcon(getClass().getResource("/pngsBro/Sniper.png"));
         cannon = new ImageIcon(getClass().getResource("/pngsBro/Cannon (2).png"));
-        //racoon = new ImageIcon(getClass().getResource("/pngsBro/placeHolder.png"));
-
-        //manifests the shops actual picture 
-        this.setBackground(Color.WHITE);
-        this.setPreferredSize(new Dimension(1280, 150));
 
         // sets the layout of the shop to be a grid layout of one column and five rows 
         griddy = new GridLayout(1, 5, 50, 50);
-        
         this.setLayout(griddy);
 
         // adds all the buttons for the monkeys // they need their damage range and speed actually made 
@@ -32,7 +26,6 @@ public class ShopPanel extends JPanel
         this.addButton("Sniper Monkey", 250, 1, 1, 1, sniper);
         this.addButton("Dart Monkey", 100, 1, 1, 1, dart);
         this.addButton("Cannon", 300, 1, 1, 1, cannon);
-       // this.addButton("Racoon Monkey", 100, 1, 1, 1, racoon);
         
     }
 
@@ -49,7 +42,7 @@ public class ShopPanel extends JPanel
     }   
 
     // checks wether or not the player has enough money and then uses addMonkey in GamePanel
-    public static void monkeyBought(String name, int cost, int speed, int range, int damage, int x, int y)
+    public void monkeyBought(String name, int cost, int speed, int range, int damage, int x, int y)
     {
         if(Player.balance >= cost)
         {

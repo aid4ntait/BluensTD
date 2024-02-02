@@ -4,7 +4,7 @@ public class Monkey
 {
     // Monkey stats
     //public static int numOfMonkeys;
-    private double bluenDistance;
+    //private double bluenDistance;
     private double attackSpeed;
     private int attackRange;
     private int attackDamage;
@@ -22,7 +22,7 @@ public class Monkey
         xPosition = xLocation;
         yPosition = yLocation;
 
-        // stores all the monkeys in a hashmap so later they may be refrenced 
+        // stores all the monkeys in a hashmap so later they may be refrenced // currently unused
         monkeysAndCosts = new HashMap<String, Integer>();
         monkeysAndCosts.put("Ninja Monkey", 150 ); // can kill camo, 
         monkeysAndCosts.put("Gattling Gun Monkey", 700); // no bloom
@@ -55,6 +55,7 @@ public class Monkey
     
 
     // setter and getter yPosition
+
     public int setY(int yLocation)
     {
         yPosition = yLocation;
@@ -78,6 +79,46 @@ public class Monkey
         xPosition = xLocation;
         return 0;
     }
-   
+
+    // setter and getter attack damage
+
+    public int getDmg()
+    {
+        return attackDamage;
+    }
+
+    public int setDmg(int newDmg)
+    {
+        attackDamage = newDmg;
+        return 0;
+    }
+
+    // setter and getter for range
+
+    public int getRng()
+    {
+        return attackRange;
+    }
+
+    public int setRng(int newRng)
+    {
+        attackRange = newRng;
+        return 0;
+    }
+
+    // setter and getter for attack speed
+
+    public double getSpd()
+    {
+        return attackSpeed;
+    }
+
+    public double setSpd(double newSpd)
+    {
+        attackSpeed = newSpd;
+        return 0;
+    }
+
+    
 
 }
