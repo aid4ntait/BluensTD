@@ -2,12 +2,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class GamePanel extends JPanel
+
+// this is a temp file that I made so that I could test how we could use other layouts to try to fix our little shop panel issue -Andrew 
+public class AndrewsTestFile extends JPanel
 {
+
+    // temp variabels 
+    GridBagLayout griddy;
+    GridBagConstraints gbc;
+
     //local objects 
     private ShopPanel shop;
-    private JButton button1; 
-    private BorderLayout borderLayout;
     private JPanel monkeyZone; // invisible panel of same dimensions of the GamePanel 
 
     //Wave handling stuff
@@ -23,21 +28,28 @@ public class GamePanel extends JPanel
     ArrayList<Bluens> wave = new ArrayList<Bluens>();
     
 
-    public GamePanel()
+    public AndrewsTestFile()
     { 
         player = new Player(); 
         bluens = new Bluens(player);
-        shop = new ShopPanel(player);
-        borderLayout = new BorderLayout();
+        griddy = new GridBagLayout();
+        gbc = new GridBagConstraints();
+
+        this.setLayout(griddy);
+        this.setBackground(Color.GREEN.darker());
+
         monkeyZone = new JPanel(); 
+        gbc.gridheight = 1;
+        gbc.gridwidth = 2; 
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        this.add(monkeyZone, gbc);
+        monkeyZone.setBackground(Color.RED);
 
-        this.setLayout(borderLayout);
-
-        monkeyZone.setBackground(Color.GREEN.darker());
-
+        shop = new ShopPanel(player);
+        shop.setVisible(true);
         shop.setBackground(Color.BLACK);
-        this.add(shop, BorderLayout.SOUTH);
-        this.add(monkeyZone, BorderLayout.CENTER);
+        this.add(shop);
     }
     
     public static void addMonkey(int speed, int range, int damage, int x, int y)
@@ -59,8 +71,9 @@ public class GamePanel extends JPanel
 
         if(currentWave > previousWaveCounter)
         {
-            Player.balance += 100; 
-            bluenCount += tempBluenCount - (5 * currentWave); //random algorithm to increase bluens over waves by increasing amount
+            Player.balance += 100;
+            bluenCount += tempBluenCount - (5 * currentWave);
         }
     }
 }
+

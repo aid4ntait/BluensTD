@@ -13,8 +13,7 @@ public class Bluens
     
     public Bluens(Player player)
     {
-        //Bloss is short
-        //what goes here tho
+        //define later
     }
 
     // setter and getter for x
