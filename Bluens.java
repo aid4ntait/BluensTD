@@ -23,10 +23,9 @@ public class Bluens
         return xPosition;
     }
 
-    public int setX(int newX)
+    public void setX(int newX)
     {
         xPosition = newX; 
-        return 0;
     }
 
     //setter and getter for y
@@ -36,10 +35,9 @@ public class Bluens
         return yPosition;
     }
 
-    public int setY(int newY)
+    public void setY(int newY)
     {
         yPosition = newY;
-        return 0;
     }
 
     //setter and getter for health points
@@ -49,10 +47,9 @@ public class Bluens
         return healthPoints;
     }
 
-    public int setHealthPoints(int newHP)
+    public void setHealthPoints(int newHP)
     {
         healthPoints = newHP;
-        return 0;
     }
 
     //setter and getter for move speed
@@ -62,10 +59,9 @@ public class Bluens
         return moveSpeed;
     }
 
-    public int setSpd(int newSpd)
+    public void setSpd(int newSpd)
     {
         moveSpeed = newSpd;
-        return 0;
     }
 
     //setter and getter for xDestination
@@ -75,10 +71,9 @@ public class Bluens
         return xDestination;
     }
 
-    public int setXDestination(int newDestination)
+    public void setXDestination(int newDestination)
     {
         xDestination = newDestination;
-        return 0;
     }
 
     //setter and getter for yDestination
@@ -88,10 +83,9 @@ public class Bluens
         return yDestination;
     }
 
-    public int setYDestination(int newYDestination)
+    public void setYDestination(int newYDestination)
     {
         yDestination = newYDestination;
-        return 0;
     }
 
     //setter and getter for killValue
@@ -101,10 +95,9 @@ public class Bluens
         return killValue;
     }
 
-    public int setKillValue(int newKillValue)
+    public void setKillValue(int newKillValue)
     {
         killValue = newKillValue;
-        return 0;
     }
 
     //setter and getter for armor 
@@ -113,10 +106,9 @@ public class Bluens
         return armor;
     }
 
-    public double setArmor(int newArmor)
+    public void setArmor(double newArmor)
     {
         armor = newArmor;
-        return 0;
     }
     
     //setter and getter for stealth

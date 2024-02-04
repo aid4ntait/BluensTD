@@ -39,17 +39,40 @@ public class AndrewsTestFile extends JPanel
         this.setBackground(Color.GREEN.darker());
 
         monkeyZone = new JPanel(); 
-        gbc.gridheight = 1;
-        gbc.gridwidth = 2; 
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        this.add(monkeyZone, gbc);
         monkeyZone.setBackground(Color.RED);
 
+        JButton button1 = new JButton("bw;er");
+        gbc.gridx = 1;
+        gbc.gridy = 1;
+        gbc.ipady = 40;
+        this.add(button1, gbc);
+
+        JButton button2 = new JButton("asdf");
+        gbc.gridx = 1;
+        gbc.gridy = 6;
+        this.add(button2, gbc);
+
+        JButton button3 = new JButton("alkjsdhf");
+        gbc.gridx = 1;
+        gbc.gridy = 11;
+        this.add(button3, gbc);
+
+        JButton button4 = new JButton(";alksjdf");
+        gbc.gridx = 1;
+        gbc.gridy = 16;
+        this.add(button4, gbc);
+
+        JButton button5 = new JButton("a;kjlshdf");
+        gbc.gridx = 1;
+        gbc.gridy = 21;
+        this.add(button5, gbc);
+
+
         shop = new ShopPanel(player);
+        //this.add(shop);
         shop.setVisible(true);
         shop.setBackground(Color.BLACK);
-        this.add(shop);
+        
     }
     
     public static void addMonkey(int speed, int range, int damage, int x, int y)

@@ -56,10 +56,9 @@ public class Monkey
 
     // setter and getter yPosition
 
-    public int setY(int yLocation)
+    public void setY(int yLocation)
     {
         yPosition = yLocation;
-        return 0;
     }
 
     public int getY()
@@ -74,10 +73,9 @@ public class Monkey
         return xPosition;
     }
 
-    public int setX(int xLocation)
+    public void setX(int xLocation)
     {
         xPosition = xLocation;
-        return 0;
     }
 
     // setter and getter attack damage
@@ -87,10 +85,9 @@ public class Monkey
         return attackDamage;
     }
 
-    public int setDmg(int newDmg)
+    public void setDmg(int newDmg)
     {
         attackDamage = newDmg;
-        return 0;
     }
 
     // setter and getter for range
@@ -100,10 +97,9 @@ public class Monkey
         return attackRange;
     }
 
-    public int setRng(int newRng)
+    public void setRng(int newRng)
     {
         attackRange = newRng;
-        return 0;
     }
 
     // setter and getter for attack speed
@@ -113,10 +109,9 @@ public class Monkey
         return attackSpeed;
     }
 
-    public double setSpd(double newSpd)
+    public void setSpd(double newSpd)
     {
         attackSpeed = newSpd;
-        return 0;
     }
 
     

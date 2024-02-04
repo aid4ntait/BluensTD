@@ -18,10 +18,9 @@ public class Player
         return balance;
     }
 
-    public int setBalance(int newMoney)
+    public void setBalance(int newMoney)
     {
         balance = newMoney;
-        return 0;
     }
 
     // getter and setter for health points
@@ -31,9 +30,8 @@ public class Player
         return healthPoints;
     }
 
-    public int setHealthPoints(int newHealth)
+    public void setHealthPoints(int newHealth)
     {
         healthPoints = newHealth;
-        return 0;
     }
 }
