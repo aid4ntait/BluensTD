@@ -8,7 +8,6 @@ public class Driver
         frame.setSize(1920, 1080);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        AndrewsTestFile tester = new AndrewsTestFile();
         GamePanel pain = new GamePanel();
         frame.setContentPane(pain);
         frame.setVisible(true);

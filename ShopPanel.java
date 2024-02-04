@@ -21,20 +21,20 @@ public class ShopPanel extends JPanel
         this.setLayout(griddy);
 
         // adds all the buttons for the monkeys // they need their damage range and speed actually made 
-        this.addButton("Ninja Monkey", 150, 1, 1, 1, ninja);
-        this.addButton("Dartling Gunner Monkey", 700, 1 , 1, 1, gattling);
-        this.addButton("Sniper Monkey", 250, 1, 1, 1, sniper);
-        this.addButton("Dart Monkey", 100, 1, 1, 1, dart);
-        this.addButton("Cannon", 300, 1, 1, 1, cannon);
+        this.addButton("Ninja Monkey", 150, ninja);
+        this.addButton("Dartling Gunner Monkey", 700, gattling);
+        this.addButton("Sniper Monkey", 250, sniper);
+        this.addButton("Dart Monkey", 100, dart);
+        this.addButton("Cannon", 300, cannon);
         
     }
 
     // creates a button with the info relative to the monkey it is supposed to be able to add. Then, the button is given a mouse listener. 
-    private void addButton(String name, int cost, int damage, int range, int speed, Icon icon)
+    private void addButton(String name, int cost, Icon icon)
     {
 
         JButton button = new JButton();
-        button.addMouseListener(new Mouse(name, cost, speed, range, damage));
+        button.addMouseListener(new Mouse(name, cost));
         button.setForeground(Color.BLACK);
         button.setIcon(icon);
         button.setToolTipText("Drag to Purchase " + name + " for " + cost + " Bananas.");
@@ -42,12 +42,13 @@ public class ShopPanel extends JPanel
     }   
 
     // checks wether or not the player has enough money and then uses addMonkey in GamePanel
-    public void monkeyBought(String name, int cost, int speed, int range, int damage, int x, int y)
+    public void monkeyBought(String name, int cost)
     {
         if(Player.balance >= cost)
         {
+            System.out.println("in Shop; MonkeyBought");
             Player.balance -= cost; 
-            GamePanel.addMonkey(speed, range, damage, x, y);
+            GamePanel.placeMoneky(name);
         }
     }
     
@@ -55,30 +56,20 @@ public class ShopPanel extends JPanel
     private class Mouse extends MouseAdapter
     {
         private int cost;
-        private int speed;
-        private int range;
-        private int damage;
         private String name;
-        private int xPosition;
-        private int yPosition;
 
-        public Mouse(String name, int price, int speed, int range, int damage)
+        public Mouse(String name, int cost)
         {
-            xPosition = 0;
-            yPosition = 0;
-            cost = price;
-            this.speed = speed;
-            this.damage = damage;
-            this.range = range;
+            
+            this.cost = cost;
             this.name = name;
         }
 
-        public void mouseReleased(MouseEvent f)
+        public void mouseClicked(MouseEvent f)
         {
-            xPosition = f.getX();
-            yPosition = f.getY();
-            monkeyBought(name, cost, speed, range, damage, xPosition, yPosition);
-            System.out.println("Price " + cost + "\nName " + name + "\nAt " + xPosition + ": " + yPosition);
+            System.out.println("In Shop: MouseClicked");
+            monkeyBought(name, cost);
+            
         }
     }
 }

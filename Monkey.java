@@ -10,26 +10,30 @@ public class Monkey
     private int attackDamage;
     private int xPosition;
     private int yPosition;
+    /* 
     private HashMap<String, Integer> monkeysAndCosts; // String is the name and the Integer is the cost of the monkey 
-
-    
-    public Monkey(double speed, int damage, int range, int xLocation, int yLocation)
+    // stores all the monkeys in a hashmap so later they may be refrenced // currently unused
+    monkeysAndCosts = new HashMap<String, Integer>();
+    monkeysAndCosts.put("Ninja Monkey", 150 ); // can kill camo, 
+    monkeysAndCosts.put("Gattling Gun Monkey", 700); // no bloom
+    monkeysAndCosts.put("Dart Monkey", 100); //The basic moneky
+    monkeysAndCosts.put("Sniper Monkey", 250); // long range, slow fire, high damage
+    monkeysAndCosts.put("Cannon", 300); // hits hard, and slow
+    monkeysAndCosts.put("Racoon Monkey", 300); //Consume the bluen.
+    */
+    public Monkey(String type, int xLocation, int yLocation)
     {
-        //numOfMonkeys++;
-        this.attackSpeed = speed;
-        this.attackRange = range;
-        this.attackDamage = damage;
-        xPosition = xLocation;
-        yPosition = yLocation;
-
-        // stores all the monkeys in a hashmap so later they may be refrenced // currently unused
-        monkeysAndCosts = new HashMap<String, Integer>();
-        monkeysAndCosts.put("Ninja Monkey", 150 ); // can kill camo, 
-        monkeysAndCosts.put("Gattling Gun Monkey", 700); // no bloom
-        monkeysAndCosts.put("Dart Monkey", 100); //The basic moneky
-        monkeysAndCosts.put("Sniper Monkey", 250); // long range, slow fire, high damage
-        monkeysAndCosts.put("Cannon", 300); // hits hard, and slow
-        monkeysAndCosts.put("Racoon Monkey", 300); //Consume the bluen.
+        if(type.equals("Ninja Monkey"))
+        {
+            this.attackSpeed = 1.00;
+            this.attackRange = 100;
+            this.attackDamage = 200;
+            xPosition = xLocation;
+            yPosition = yLocation;
+            System.out.println("made");
+        }
+        
+        
     }
 
 
