@@ -44,12 +44,13 @@ public class ShopPanel extends JPanel
     // checks wether or not the player has enough money and then uses addMonkey in GamePanel
     public void monkeyBought(String name, int cost)
     {
-        if(Player.balance >= cost)
+        if(Player.balance >= 0)
         {
             System.out.println("in Shop; MonkeyBought");
             Player.balance -= cost; 
-            GamePanel.placeMoneky(name);
+            GamePanel.placeMoneky();
         }
+        
     }
     
     // mouse listener that deals with the actions of the button, also stores all of the buttons info so that it can pass it through to monkeyBought;
@@ -60,12 +61,11 @@ public class ShopPanel extends JPanel
 
         public Mouse(String name, int cost)
         {
-            
             this.cost = cost;
             this.name = name;
         }
 
-        public void mouseClicked(MouseEvent f)
+        public void mousePressed(MouseEvent f)
         {
             System.out.println("In Shop: MouseClicked");
             monkeyBought(name, cost);

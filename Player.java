@@ -7,7 +7,7 @@ public class Player
     
     public Player()
     {
-        balance = 300;
+        balance = 500000;
         healthPoints = 10;
     }
 
