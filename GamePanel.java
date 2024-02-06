@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.awt.image.*;
 
 public class GamePanel extends JPanel
 {
@@ -12,7 +13,9 @@ public class GamePanel extends JPanel
     private JButton button1; 
     private BorderLayout borderLayout;
     private JPanel monkeyZone; // invisible panel of same dimensions of the GamePanel 
-
+    private BufferedImage myImage;
+    private Graphics myBuffer;
+    private Timer time;
     //Wave handling stuff
     private int currentWave = 0;
     private int bluenCount = 10;
@@ -45,24 +48,29 @@ public class GamePanel extends JPanel
         shop.setBackground(Color.BLACK);
         this.add(shop, BorderLayout.SOUTH);
         this.add(monkeyZone, BorderLayout.CENTER);
+        time = new Timer(24, new PrizeListener()); // need to do graphics and guis
+        time.start();
         addMouseListener(new MouseAdapter() 
         {
-            public void mouseClicked(MouseEvent e) 
+            public void mousePressed(MouseEvent e) 
             {
                 //update current mouse coordinates
                 currentMouseX = e.getX();
                 currentMouseY = e.getY();
+                
                 System.out.println("In gamePanel: mouseclicked");
                 //create new Moneky r
                 if (placeMoneky == true) 
                 {
-                    System.out.println("is this even happening");
-                    addMonkey(currentType, currentMouseX, currentMouseY);
                     ImageIcon image = new ImageIcon("C:\\Users\\Charles Carmichael\\Documents\\Bluens\\BluensTD\\pngsBro\\DartMonkey.png");
                     JLabel icon = new JLabel(); // add switch case for icon
                     icon.setIcon(image);
+                    System.out.println(currentMouseX + " : " + currentMouseY);
                     icon.setLocation(currentMouseX, currentMouseY);
                     monkeyZone.add(icon);
+                    System.out.println("is this even happening");
+                    addMonkey(currentType, currentMouseX, currentMouseY);
+                    
                     
                 }
             }
@@ -71,32 +79,20 @@ public class GamePanel extends JPanel
         });
         
     }
-    
+    public void paintComponent(Graphics g)
+    {
+        g.drawImage(myImage, 0, 0, getWidth(), getHeight(), null);
+
+
+    }
     public static void addMonkey(String type, int x, int y)
     {
         Monkey moneky = new Monkey(type, x,y);
     }
     private class Mouse extends MouseAdapter
     {
-        //public void mouseDragged(MouseEvent e) {}
-	
-        public void mouseClicked(MouseEvent e) {
-            //update current mouse coordinates
-            currentMouseX = e.getX();
-            currentMouseY = e.getY();
-            System.out.println("In gamePanel: mouseclicked");
-            //create new Moneky r
-            if (placeMoneky == true) {
-                System.out.println("is this even happening");
-                addMonkey(currentType, currentMouseX, currentMouseY);
-                ImageIcon image = new ImageIcon("C:\\Users\\Charles Carmichael\\Documents\\Bluens\\BluensTD\\pngsBro\\DartMonkey.png");
-                JLabel icon = new JLabel(); // add switch case for icon
-                icon.setIcon(image);
-                icon.setLocation(currentMouseX, currentMouseY);
-                monkeyZone.add(icon);
-            }
-    
-        }
+        public void mouseDragged(MouseEvent e) {}
+
     }
     
     public static void placeMoneky()

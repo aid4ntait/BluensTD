@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Monkey
 {
     // Monkey stats
-    //public static int numOfMonkeys;
+    public static int numOfMonkeys;
     //private double bluenDistance;
     private double attackSpeed;
     private int attackRange;
@@ -32,6 +32,8 @@ public class Monkey
             yPosition = yLocation;
             System.out.println("made");
         }
+        numOfMonkeys++;
+        System.out.print(numOfMonkeys);
         
         
     }

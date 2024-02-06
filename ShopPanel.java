@@ -44,6 +44,7 @@ public class ShopPanel extends JPanel
     // checks wether or not the player has enough money and then uses addMonkey in GamePanel
     public void monkeyBought(String name, int cost)
     {
+        System.out.println(Player.balance);
         if(Player.balance >= 0)
         {
             System.out.println("in Shop; MonkeyBought");
