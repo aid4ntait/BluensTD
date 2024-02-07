@@ -34,8 +34,6 @@ public class Monkey
         }
         numOfMonkeys++;
         System.out.print(numOfMonkeys);
-        
-        
     }
 
 
@@ -44,7 +42,7 @@ public class Monkey
         // Looks at each individual bluen in the wave and finds if its in range.
         for(int i = 0; i < currentWave.size(); i++) // Iterates through each bluen
         {
-            int xdis = this.getX() - currentWave.get(i).getX(); // get xdistance
+            int xdis = this.getX() - currentWave.get(i).getX(); //ඞ get xdistance
             int ydis = this.getY() - currentWave.get(i).getY(); // get ydistance
             double distance = Math.sqrt(Math.pow(xdis, 2) + Math.pow(ydis, 2)); // Using pythagorean get distance 
             if(distance <= this.attackRange) // if the distance from the current bluen to the monkey is less than range
@@ -55,8 +53,6 @@ public class Monkey
                 break;
             }
         }
-        
-        
     }
     
 
@@ -99,7 +95,7 @@ public class Monkey
         return 0;
     }
 
-    // setter and getter for range
+    // setter and getter for rඞnge
 
     public int getRng()
     {
@@ -124,7 +120,4 @@ public class Monkey
         attackSpeed = newSpd;
         return 0;
     }
-
-    
-
 }

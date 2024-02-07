@@ -42,7 +42,7 @@ public class Bluens
         return 0;
     }
 
-    //setter and getter for health points
+    //setter and getter for heඞlth points
 
     public int getHealthPoints()
     {
@@ -132,7 +132,7 @@ public class Bluens
     }
 
     //SEPERATE into seperate goals e.g. : path1 goes right 300 units, path2 goes up 20, path3 left 400, ect
-    private void Path()
+    public void Path()
     {
         //I write clean code that will get us to destination.  Do not question.  It will work (prettyplz)
         while(xPosition != xDestination || yPosition != yDestination)

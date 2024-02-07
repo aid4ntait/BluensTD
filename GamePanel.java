@@ -63,7 +63,7 @@ public class GamePanel extends JPanel
         {
             public void mousePressed(MouseEvent e) 
             {
-                //update current mouse coordinates
+                //updඞte current mouse coordinates
                 currentMouseX = e.getX();
                 currentMouseY = e.getY();
                 
@@ -99,8 +99,10 @@ public class GamePanel extends JPanel
     }
     private class Mouse extends MouseAdapter
     {
-        public void mouseDragged(MouseEvent e) {}
+        public void mouseDragged(MouseEvent e) 
+        {
 
+        }
     }
     
     public static void placeMoneky()
