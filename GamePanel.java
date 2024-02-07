@@ -48,17 +48,17 @@ public class GamePanel extends JPanel
         shop.setBackground(Color.BLACK);
         this.add(shop, BorderLayout.SOUTH);
         this.add(monkeyZone, BorderLayout.CENTER);
-        time = new Timer(24, new PlacementListener()); // need to do graphics and guis
+       /* Moved this code into addMouseListener.  I don't think we need a timer 
+       time = new Timer(24, new PlacementListener()); // need to do graphics and guis
         time.start();
 
         public class PlacementListener implements MouseListener //Implementing mouse listener this way is probably wrong
         {
             public void actionPerformed(MouseEvent e)
             {
-                scorePanel.update(); //I forgot which file handles display.  If it will be ScoreboardPanel.java, use this.  Otherwise create
-                //an instance of whichever class file we need in here (Like we did with "private ScoreboardPanel scorePanel;")
+                repaint(); //Resets screen??
             }
-        }
+        }*/
         addMouseListener(new MouseAdapter() 
         {
             public void mousePressed(MouseEvent e) 
@@ -79,8 +79,7 @@ public class GamePanel extends JPanel
                     monkeyZone.add(icon);
                     System.out.println("is this even happening");
                     addMonkey(currentType, currentMouseX, currentMouseY);
-                    
-                    
+                    repaint(); //this SHOULD reset the screen.  I still can't run the program until I'm home
                 }
             }
 
