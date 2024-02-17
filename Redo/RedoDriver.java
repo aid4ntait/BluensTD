@@ -8,7 +8,7 @@ public class RedoDriver
         frame.setSize(1920, 1080);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        GamePanel redo = new GamePanel();
+        RedoGamePanel redo = new RedoGamePanel();
         frame.setContentPane(redo);
         frame.setVisible(true);
 

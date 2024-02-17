@@ -6,12 +6,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.awt.image.*;
 
-public class GamePanel extends JPanel{
+public class RedoGamePanel extends JPanel{
     private MonkeyZone monkeyPanel;
     private Timer time; 
     private int timerDelay = 24;
 }
-
 
 
 class MonkeyZone extends JPanel{

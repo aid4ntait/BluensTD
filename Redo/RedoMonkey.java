@@ -2,7 +2,7 @@ import java.awt.Graphics;
 
 import javax.swing.*;
 
-public class Monkey {
+public class RedoMonkey {
     
     // Monkey stats
     public static int numOfMonkeys;
