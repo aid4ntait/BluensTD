@@ -29,7 +29,7 @@ public class ShopPanel extends JPanel
         
     }
 
-    // creates a button with the info relative to the monkey it is supposed to be able to add. Then, the button is given a mouse listener. 
+    // creates a button with the info relative to the monkey it is supposed to be able to addඞ. Then, the button is given a mouse listener. 
     private void addButton(String name, int cost, Icon icon)
     {
 
@@ -45,7 +45,7 @@ public class ShopPanel extends JPanel
     public void monkeyBought(String name, int cost)
     {
         System.out.println(Player.balance);
-        if(Player.balance >= 0)
+        if(Player.balance >= cost)
         {
             System.out.println("in Shop; MonkeyBought");
             Player.balance -= cost; 

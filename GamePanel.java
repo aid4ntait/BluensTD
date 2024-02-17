@@ -42,7 +42,7 @@ public class GamePanel extends JPanel
         bluens = new Bluens(player);
         shop = new ShopPanel(player);
         borderLayout = new BorderLayout();
-        monkeyZone = new JPanel(); 
+        monkeyZone = new JPanel();
 
         this.setLayout(borderLayout);
 
@@ -55,15 +55,12 @@ public class GamePanel extends JPanel
         shop.setBackground(Color.BLACK);
         this.add(shop, BorderLayout.SOUTH);
         this.add(monkeyZone, BorderLayout.CENTER);
-        
-        time = new Timer(24, new Listener()); // need to do graphics and guis
+        time = new Timer(24, new PrizeListener()); // need to do graphics and guis
         time.start();
-        
         addMouseListener(new MouseAdapter() 
         {
             public void mousePressed(MouseEvent e) 
             {
-                
                 //update current mouse coordinates
                 currentMouseX = e.getX();
                 currentMouseY = e.getY();
@@ -78,7 +75,6 @@ public class GamePanel extends JPanel
                     icon.setLocation(currentMouseX, currentMouseY);
                     monkeyZone.add(icon);
                     addMonkey(currentType, currentMouseX, currentMouseY);
-                    placeMoneky = false;
                     
                     
                 }
@@ -113,8 +109,10 @@ public class GamePanel extends JPanel
     
     private class Mouse extends MouseAdapter
     {
-        public void mouseDragged(MouseEvent e) {}
+        public void mouseDragged(MouseEvent e) 
+        {
 
+        }
     }
     
     public static void placeMoneky()
