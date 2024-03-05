@@ -1,3 +1,4 @@
+
 import javax.swing.JFrame;
  
 public class Driver
@@ -11,5 +12,6 @@ public class Driver
         GamePanel pain = new GamePanel();
         frame.setContentPane(pain);
         frame.setVisible(true);
+
     }
 }

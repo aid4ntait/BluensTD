@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 
 import javax.swing.*;
@@ -5,138 +6,88 @@ import java.awt.event.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.awt.image.*;
-
 public class GamePanel extends JPanel
 {
-    //local objects 
-    private ShopPanel shop;
-    private JButton button1; 
-    private BorderLayout borderLayout;
-    private JPanel monkeyZone; // invisible panel of same dimensions of the GamePanel 
+    public static MonkeyZone monkeyZone;
+    private Timer time; 
+    private int timerDelay;
     private BufferedImage myImage;
-    private Graphics myBuffer;
-    private Timer time;
-    
-    //Wave handling stuff
-    private int currentWave = 0;
-    private int bluenCount = 10;
+    private BorderLayout borderLayout;
+    public static ArrayList<Monkey> monkeys = new ArrayList<Monkey>();
+    public GamePanel(){
+        //timerDelay = 10;
+        ImageIcon dart = new ImageIcon(getClass().getResource("/pngsBro/DartMonkey.png"));
 
-    static boolean placeMoneky = false;
-    public static String currentType = "Ninja Monkey";
-    private ImageIcon dart, ninja, gattling, sniper, cannon;
-    
-    //Making all of the other classes exist so we can pass them through to each other
-    private Bluens bluens;
-    private Player player;
-    //private ScoreboardPanel scorePanel;
-
-    ArrayList<Bluens> wave = new ArrayList<Bluens>();
-    
-    private int currentMouseX;
-    private int currentMouseY;
-    private int i;
-
-    public GamePanel()
-    { 
-        player = new Player(); 
-        bluens = new Bluens(player);
-        shop = new ShopPanel(player);
+        monkeyZone = new MonkeyZone();
         borderLayout = new BorderLayout();
-        monkeyZone = new JPanel();
-
         this.setLayout(borderLayout);
-
+        time = new Timer(10, new Listener());
         monkeyZone.setBackground(Color.GREEN.darker());
-        ImageIcon image = new ImageIcon("DartMonkey.png");
-        JLabel icon = new JLabel(); // add switch case for icon
-        icon.setIcon(image);
-        icon.setLocation(100, 100);
-        monkeyZone.add(icon);
-        shop.setBackground(Color.BLACK);
-        this.add(shop, BorderLayout.SOUTH);
-        this.add(monkeyZone, BorderLayout.CENTER);
-        time = new Timer(24, new PrizeListener()); // need to do graphics and guis
-        time.start();
-        addMouseListener(new MouseAdapter() 
-        {
-            public void mousePressed(MouseEvent e) 
-            {
-                //update current mouse coordinates
-                currentMouseX = e.getX();
-                currentMouseY = e.getY();
-                
-                //create new Moneky r
-                if (placeMoneky == true) 
-                {
-                    ImageIcon image = new ImageIcon("DartMonkey.png");
-                    JLabel icon = new JLabel(); // add switch case for icon
-                    icon.setIcon(image);
-                    System.out.println("X:Y " +currentMouseX + " : " + currentMouseY);
-                    icon.setLocation(currentMouseX, currentMouseY);
-                    monkeyZone.add(icon);
-                    addMonkey(currentType, currentMouseX, currentMouseY);
-                    
-                    
-                }
-            }
-
-                
-        });
         
+        Monkey moneky = new Monkey("dart", 100, 100, dart );
+        monkeys.add(moneky);
+        this.add(monkeyZone, BorderLayout.CENTER);
+        monkeyZone.stepAnimation();
     }
-    
-    
     private class Listener implements ActionListener
     {
-        public void actionPerformed(ActionEvent e)  
+        public void actionPerformed(ActionEvent e)
         {
-            
-            repaint();
+            monkeyZone.stepAnimation();
+        }
+    } 
+}
+
+class MonkeyZone extends JPanel{
+    
+    private BufferedImage myImage;
+    private Graphics myBuffer;
+    private ArrayList<Monkey> monkeys = GamePanel.monkeys;
+    public static final int N = 400;
+    public MonkeyZone()
+    {
+        myImage =  new BufferedImage(N, N, BufferedImage.TYPE_INT_RGB);
+        myBuffer = myImage.getGraphics();
+    }
+    public void stepAnimation()
+    {
+        myBuffer.setColor(Color.green.darker());
+        myBuffer.fillRect(0,0,1000,1000); 
+        //for each monkey ->
+        //Monkey.draw(myBuffer);
+        
+        if(monkeys.size() > 0)
+        {
+            System.out.println(1);
+            for(int i = 0; i < monkeys.get(0).getNumOfMonkeys(); i++)
+            {
+                System.out.println(monkeys.get(i).toString());
+                monkeys.get(i).draw(myBuffer);
+            }
+        }
+        else{
+            // don't know what to do here
+        }
+        //myBuffer.drawImage(new ImageIcon(getClass().getResource("/pngsBro/NinjaMonkey.png")).getImage(), 100, 100, 25, 25, null); 
+        repaint();
+
+    }
+    private class Mouse extends MouseAdapter
+    {
+        MonkeyZone monkeyZone = GamePanel.monkeyZone;
+        ImageIcon dart = new ImageIcon(getClass().getResource("/pngsBro/DartMonkey.png"));
+
+        public void mousePressed(MouseEvent e)
+        {
+            Monkey moneky = new Monkey("dart", e.getX(), e.getY(), dart );
+
+            monkeyZone.stepAnimation();
         }
     }
-    
+
     public void paintComponent(Graphics g)
     {
         g.drawImage(myImage, 0, 0, getWidth(), getHeight(), null);
-
-
-    }
-    
-    public static void addMonkey(String type, int x, int y)
-    {
-        Monkey moneky = new Monkey(type, x,y);
-    }
-    
-    private class Mouse extends MouseAdapter
-    {
-        public void mouseDragged(MouseEvent e) 
-        {
-
-        }
-    }
-    
-    public static void placeMoneky()
-    {
-        placeMoneky = true;
-        //currentType = type;
-        
-    }
-
-    private static void waveHandler(int currentWave, int bluenCount)
-    {
-        //Stuff to trigger the next wave
-        int previousWaveCounter = 0;
-        int tempBluenCount = bluenCount; //makes it so we can easily increment, while also judging wave progress by bluens killed
-        if(bluenCount == 0)
-        {
-            previousWaveCounter = currentWave;
-            currentWave += 1;
-        }
-
-        if(currentWave > previousWaveCounter)
-        {
-            Player.balance += 100; 
-            bluenCount += tempBluenCount - (5 * currentWave); //random algorithm to increase bluens over waves by increasing amount
-        }
     }
 }
+

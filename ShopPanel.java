@@ -49,7 +49,7 @@ public class ShopPanel extends JPanel
         {
             System.out.println("in Shop; MonkeyBought");
             Player.balance -= cost; 
-            GamePanel.placeMoneky();
+            //GamePanel.placeMoneky();
         }
         
     }
